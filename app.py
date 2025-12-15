@@ -1,6 +1,6 @@
 import os
 from flask import Flask, render_template, abort, url_for, send_file
-from flask import redirect, abort
+from flask import redirect, abort, request
 
 app = Flask(__name__, static_folder='static', template_folder='templates')
 
