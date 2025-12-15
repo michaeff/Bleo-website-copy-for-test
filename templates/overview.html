@@ -237,6 +237,59 @@
     .back-button:hover {
       background: #2980b9;
     }
+            .download-popup {
+      position: absolute;
+      background: #fff;
+      border: 1px solid #bbb;
+      border-radius: 8px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.13);
+      padding: 1rem 1.5rem 1rem 1.5rem;
+      z-index: 100;
+      display: none;
+      flex-direction: column;
+      gap: 0.75rem;
+      min-width: 180px;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 60px;
+    }
+    .download-popup button {
+      width: 100%;
+      padding: 0.5rem 0;
+      font-size: 1rem;
+      border-radius: 4px;
+      border: 1px solid #bbb;
+      background: #f5f5f5;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .download-popup button:hover {
+      background: #e0e0e0;
+    }
+    .download-popup .close-btn {
+      background: #eee;
+      color: #888;
+      border: none;
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+    }
+    .download-image-btn {
+      background: #007acc;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 0.2rem 0.4rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s;
+      white-space: nowrap;
+      font-family: 'Inter', 'SF Pro Display', 'Segoe UI', system-ui, sans-serif;
+      margin-left: 0.1rem;
+    }
+    .download-image-btn:hover {
+      background: #005a9e;
+    }
   </style>
 </head>
 <body>
@@ -808,6 +861,43 @@
       };
 
     });
+      // Download popup functionality
+  document.querySelectorAll('.download-image-btn').forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
+      // Clear any existing popups first
+      document.querySelectorAll('.download-popup').forEach(p => p.remove());
+      
+      const week = btn.getAttribute('data-week');
+      const iter = btn.getAttribute('list-num')
+      const popup = document.createElement('div');
+      popup.className = 'download-popup';
+      popup.innerHTML = `
+        <button onclick="window.location='/download/detailweek${week}${iter}'">Download CZI</button>
+        <button onclick="window.location='/download/detailweektif${week}${iter}'">Download TIFF</button>
+        <button class='close-btn'>Cancel</button>
+      `;
+      
+      // Position and show the popup
+      btn.parentElement.style.position = 'relative';
+      btn.parentElement.appendChild(popup);
+      popup.style.display = 'flex';
+      
+      // Close popup when cancel is clicked
+      popup.querySelector('.close-btn').onclick = function() {
+        popup.remove();
+      };
+      
+      // Close popup when clicking outside
+      setTimeout(() => {
+        document.addEventListener('mousedown', function handler(ev) {
+          if (!popup.contains(ev.target) && ev.target !== btn) {
+            popup.remove();
+            document.removeEventListener('mousedown', handler);
+          }
+        });
+      }, 100);
+    });
+  });
   </script>
 </body>
 </html>
