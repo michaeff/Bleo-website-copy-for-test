@@ -90,7 +90,43 @@ def download_detailweektif(week):
         url = f"https://media.githubusercontent.com/media/michaeff/Bleo-website/main/static/czi_images_detailed/week{week0}/{weekrest}/week{week0}_{weekrest}.tif"
         return redirect(url)
         
-    
+@app.route('/download/overview<string:fldr><string:name><string:type>')
+def download_overview(fldr,name,type):
+    if type == '1':
+        url = f"https://media.githubusercontent.com/media/michaeff/Bleo-website/main/static/overview/{name}/{name}.czi"
+        return redirect(url)
+    else:
+        return download_detailweek(fldr+name)
+    # # Path to the CZI file
+    # week0= week[0]
+    # if week0 == '0':
+    #     czi_path = os.path.join(app.static_folder, 'czi_images_detailed',f'week{week0}', f'week{week0}.czi')
+    #     # Check if file exists
+    #     print(czi_path)
+    #     if not os.path.isfile(czi_path):
+    #         abort(404)
+        
+    #     # Send the file as download
+    #     return send_file(czi_path, as_attachment=True, download_name=f'detailweek{week0}.czi')
+    # else:
+    #     weekrest= week[1:]
+
+    #     czi_path = os.path.join(app.static_folder, 'czi_images_detailed',f'week{week0}',weekrest, f'week{week0}_{weekrest}.czi')
+    #     # Check if file exists
+    #     print(czi_path)
+    #     if not os.path.isfile(czi_path):
+    #         abort(404)
+        
+    #     # Send the file as download
+    #     return send_file(czi_path, as_attachment=True, download_name=f'detailweek{week}.czi')
+
+@app.route('/download/overviewtif<string:week>')
+def download_overviewtif(fldr,name,type):
+    if type == '1':
+        url = f"https://media.githubusercontent.com/media/michaeff/Bleo-website/main/static/overview/{name}/{name}.tif"
+        return redirect(url)
+    else:
+        return download_detailweektif(fldr+name)
 
 @app.route('/download/main/week<int:week>')
 def download_main_detailweek(week):
