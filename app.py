@@ -120,7 +120,7 @@ def download_overview(fldr,name,type):
     #     # Send the file as download
     #     return send_file(czi_path, as_attachment=True, download_name=f'detailweek{week}.czi')
 
-@app.route('/download/overviewtif<string:week>')
+@app.route('/download/overviewtif<string:fldr><string:name><string:type>'')
 def download_overviewtif(fldr,name,type):
     if type == '1':
         url = f"https://media.githubusercontent.com/media/michaeff/Bleo-website/main/static/overview/{name}/{name}.tif"
