@@ -874,8 +874,8 @@
       const popup = document.createElement('div');
       popup.className = 'download-popup';
       popup.innerHTML = `
-        <button onclick="window.location='/download/overview${week}${iter}'">Download CZI</button>
-        <button onclick="window.location='/download/overviewtif${week}${iter}'">Download TIFF</button>
+        <button onclick="window.location='/download/overview${name}${fldr}${type}'">Download CZI</button>
+        <button onclick="window.location='/download/overviewtif${name}${fldr}${type}'">Download TIFF</button>
         <button class='close-btn'>Cancel</button>
       `;
       
