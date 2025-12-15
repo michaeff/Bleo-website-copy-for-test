@@ -90,7 +90,7 @@ def download_detailweektif(week):
         url = f"https://media.githubusercontent.com/media/michaeff/Bleo-website/main/static/czi_images_detailed/week{week0}/{weekrest}/week{week0}_{weekrest}.tif"
         return redirect(url)
         
-@app.route('/download/overview<string:fldr><string:name><string:type>')
+@app.route("/download")
 def download_overview():
     fldr = request.args.get("fldr")
     name = request.args.get("name")
@@ -99,11 +99,12 @@ def download_overview():
     print("fldr =", fldr)
     print("name =", name)
     print("type =", type)
-    if type == '1':
-        url = f"https://media.githubusercontent.com/media/michaeff/Bleo-website/main/static/overview/{name}/{name}.czi"
+
+    if type == "1":
+        url = f"https://media.githubusercontent.com/media/michaeff/Bleo-website/main/static/{fldr}/{name}/{name}.czi"
         return redirect(url)
     else:
-        return download_detailweek(fldr+name)
+        return download_detailweek(fldr + name)
     # # Path to the CZI file
     # week0= week[0]
     # if week0 == '0':
@@ -127,7 +128,7 @@ def download_overview():
     #     # Send the file as download
     #     return send_file(czi_path, as_attachment=True, download_name=f'detailweek{week}.czi')
 
-@app.route('/download/overviewtif<string:fldr><string:name><string:type>')
+@app.route("/download")
 def download_overviewtif():
     fldr = request.args.get("fldr")
     name = request.args.get("name")
@@ -136,11 +137,12 @@ def download_overviewtif():
     print("fldr =", fldr)
     print("name =", name)
     print("type =", type)
-    if type == '1':
-        url = f"https://media.githubusercontent.com/media/michaeff/Bleo-website/main/static/overview/{name}/{name}.tif"
+
+    if type == "1":
+        url = f"https://media.githubusercontent.com/media/michaeff/Bleo-website/main/static/{fldr}/{name}/{name}.tif"
         return redirect(url)
     else:
-        return download_detailweektif(fldr+name)
+        return download_detailweek(fldr + name)
 
 @app.route('/download/main/week<int:week>')
 def download_main_detailweek(week):
