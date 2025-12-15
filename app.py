@@ -43,66 +43,52 @@ def download_week(week):
 
 @app.route('/download/weektif<int:week>')
 def download_weektif(week):
-    # Path to the CZI file
-    czi_path = os.path.join(app.static_folder, 'czi_images', f'week{week}.tif')
-    
-    # Check if file exists
-    if not os.path.isfile(czi_path):
-        abort(404)
-    
-    # Send the file as download
-    return send_file(czi_path, as_attachment=True, download_name=f'week{week}.tif')
+    url = f"https://media.githubusercontent.com/media/michaeff/Bleo-website/main/static/czi_images/week{week}.tif"
+    return redirect(url)
 
 @app.route('/download/detailweek<string:week>')
 def download_detailweek(week):
-    # Path to the CZI file
     week0= week[0]
     if week0 == '0':
-        czi_path = os.path.join(app.static_folder, 'czi_images_detailed',f'week{week0}', f'week{week0}.czi')
-        # Check if file exists
-        print(czi_path)
-        if not os.path.isfile(czi_path):
-            abort(404)
-        
-        # Send the file as download
-        return send_file(czi_path, as_attachment=True, download_name=f'detailweek{week0}.czi')
+        url = f"https://media.githubusercontent.com/media/michaeff/Bleo-website/main/static/czi_images_detailed/week{week}/week{week}.czi"
+    return redirect(url)
     else:
         weekrest= week[1:]
-
-        czi_path = os.path.join(app.static_folder, 'czi_images_detailed',f'week{week0}',weekrest, f'week{week0}_{weekrest}.czi')
-        # Check if file exists
-        print(czi_path)
-        if not os.path.isfile(czi_path):
-            abort(404)
+        url = f"https://media.githubusercontent.com/media/michaeff/Bleo-website/main/static/czi_images_detailed/week{week0}/{weekrest}/week{week}_{weekrest}.czi"
+    return redirect(url)
+    # # Path to the CZI file
+    # week0= week[0]
+    # if week0 == '0':
+    #     czi_path = os.path.join(app.static_folder, 'czi_images_detailed',f'week{week0}', f'week{week0}.czi')
+    #     # Check if file exists
+    #     print(czi_path)
+    #     if not os.path.isfile(czi_path):
+    #         abort(404)
         
-        # Send the file as download
-        return send_file(czi_path, as_attachment=True, download_name=f'detailweek{week}.czi')
+    #     # Send the file as download
+    #     return send_file(czi_path, as_attachment=True, download_name=f'detailweek{week0}.czi')
+    # else:
+    #     weekrest= week[1:]
+
+    #     czi_path = os.path.join(app.static_folder, 'czi_images_detailed',f'week{week0}',weekrest, f'week{week0}_{weekrest}.czi')
+    #     # Check if file exists
+    #     print(czi_path)
+    #     if not os.path.isfile(czi_path):
+    #         abort(404)
+        
+    #     # Send the file as download
+    #     return send_file(czi_path, as_attachment=True, download_name=f'detailweek{week}.czi')
 
 @app.route('/download/detailweektif<string:week>')
 def download_detailweektif(week):
-    # Path to the CZI file
     week0= week[0]
-    print(week)
-    if week0 == 0:
-        czi_path = os.path.join(app.static_folder, 'czi_images_detailed',f'week{week0}' f'week{week0}.tif')
-        # Check if file exists
-        print(czi_path)
-        if not os.path.isfile(czi_path):
-            abort(404)
-        
-        # Send the file as download
-        return send_file(czi_path, as_attachment=True, download_name=f'detailweek{week0}.tif')
+    if week0 == '0':
+        url = f"https://media.githubusercontent.com/media/michaeff/Bleo-website/main/static/czi_images_detailed/week{week}/week{week}.tif"
+    return redirect(url)
     else:
         weekrest= week[1:]
-
-        czi_path = os.path.join(app.static_folder, 'czi_images_detailed',f'week{week0}',weekrest, f'week{week0}_{weekrest}.tif')
-        print(czi_path)
-        # Check if file exists
-        if not os.path.isfile(czi_path):
-            abort(404)
-        
-        # Send the file as download
-        return send_file(czi_path, as_attachment=True, download_name=f'detailweek{week}.tif')
+        url = f"https://media.githubusercontent.com/media/michaeff/Bleo-website/main/static/czi_images_detailed/week{week0}/{weekrest}/week{week}_{weekrest}.tif"
+    return redirect(url)
         
     
 
