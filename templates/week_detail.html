@@ -325,7 +325,97 @@
       </div>
     </div>
   </section>
+ <!-- Healthy Arteriole Section -->
+  <section id="vessel-healthy_arteriole" class="overview-section">
+    <h1>Healthy Arteriole</h1>
+    <div class="viewer-container">
+      <div class="viewer-item">
+        <h3>CZI Viewer</h3>
+        <div class="czi-viewer" id="viewer-healthy-arteriole">
+          <!-- Z-stack images will be loaded by JavaScript -->
+        </div>
+        <div class="viewer-controls">
+          <div class="channel-row">
+            <label><input type="checkbox" class="channel-cbx" data-section="healthy-arteriole" data-chan="1"> <span>Everything</span></label>
+            <label><input type="checkbox" class="channel-cbx" data-section="healthy-arteriole" data-chan="2"> <span>GFP</span></label>
+            <label><input type="checkbox" class="channel-cbx" data-section="healthy-arteriole" data-chan="3"> <span>aSMA</span></label>
+            <label><input type="checkbox" class="channel-cbx" data-section="healthy-arteriole" data-chan="4"> <span>DAPI</span></label>
+          </div>
+          <button class="download-image-btn" onclick="downloadCurrentView('healthy-arteriole')"fldr="overview" name="healthy arteriole", type = "1">Download</button>
 
+        </div>
+        <div class="z-slider">
+          <label class="z-slider-label">Z-Stack: <span id="z-value-healthy-arteriole">50</span></label>
+          <input type="range" id="z-slider-healthy-arteriole" min="1" max="101" value="50" data-section="healthy-arteriole">
+        </div>
+      </div>
+      <div class="viewer-item">
+        <h3>PNG Viewer</h3>
+        <div class="png-viewer">
+          <img src="https://media.githubusercontent.com/media/michaeff/Bleo-website/refs/heads/main/static/overview/healthy%20arteriole/merged.png" alt="Healthy Arteriole Merged" id="png-healthy-arteriole" loading="lazy" decoding="async">
+        </div>
+        <div class="viewer-controls">
+          <button class="png-viewer-btn active" data-section="healthy-arteriole" data-type="merged">Merged</button>
+          <button class="png-viewer-btn" data-section="healthy-arteriole" data-type="asma">aSMA</button>
+          <button class="png-viewer-btn" data-section="healthy-arteriole" data-type="gfp">GFP</button>
+        </div>
+      </div>
+      <div class="viewer-item">
+        <h3>Video</h3>
+        <div class="video-viewer">
+          <video controls>
+            <source src="/static/overview/healthy%20arteriole/overview.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+    </div>
+  </section>
+<!-- Healthy Venule Section -->
+  <section id="vessel-healthy_venule" class="overview-section">
+    <h1>Healthy Venule</h1>
+    <div class="viewer-container">
+      <div class="viewer-item">
+        <h3>CZI Viewer</h3>
+        <div class="czi-viewer" id="viewer-healthy-venule">
+          <!-- Z-stack images will be loaded by JavaScript -->
+        </div>
+        <div class="viewer-controls">
+          <div class="channel-row">
+            <label><input type="checkbox" class="channel-cbx" data-section="healthy-venule" data-chan="1"> <span>Everything</span></label>
+            <label><input type="checkbox" class="channel-cbx" data-section="healthy-venule" data-chan="2"> <span>GFP</span></label>
+            <label><input type="checkbox" class="channel-cbx" data-section="healthy-venule" data-chan="3"> <span>aSMA</span></label>
+            <label><input type="checkbox" class="channel-cbx" data-section="healthy-venule" data-chan="4"> <span>DAPI</span></label>
+          </div>
+          <button class="download-image-btn" onclick="downloadCurrentView('healthy-venule')"fldr="overview" name="healthy venule", type = "1">Download</button>
+        </div>
+        <div class="z-slider">
+          <label class="z-slider-label">Z-Stack: <span id="z-value-healthy-venule">50</span></label>
+          <input type="range" id="z-slider-healthy-venule" min="1" max="101" value="50" data-section="healthy-venule">
+        </div>
+      </div>
+      <div class="viewer-item">
+        <h3>PNG Viewer</h3>
+        <div class="png-viewer">
+          <img src="https://media.githubusercontent.com/media/michaeff/Bleo-website/refs/heads/main/static/overview/healthy%20venule/merged.png" alt="Healthy Venule Merged" id="png-healthy-venule" loading="lazy" decoding="async">
+        </div>
+        <div class="viewer-controls">
+          <button class="png-viewer-btn active" data-section="healthy-venule" data-type="merged">Merged</button>
+          <button class="png-viewer-btn" data-section="healthy-venule" data-type="asma">aSMA</button>
+          <button class="png-viewer-btn" data-section="healthy-venule" data-type="gfp">GFP</button>
+        </div>
+      </div>
+      <div class="viewer-item">
+        <h3>Video</h3>
+        <div class="video-viewer">
+          <video controls>
+            <source src="/static/overview/healthy%20venule/overview.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+    </div>
+  </section>
   {% else %}
   <!-- Week 1+ Sections (KMC 1, 2, 3 + Healthy/Fibrotic) -->
   <section class="week-detail-section">
