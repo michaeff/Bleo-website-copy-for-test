@@ -25,9 +25,20 @@ def week_detail(week):
     return render_template('week_detail.html', week=week)
 
 @app.route('/download/week<int:week>')
+# def download_week(week):
+#     # Path to the CZI file
+#     czi_path = os.path.join(app.static_folder, 'czi_images', f'week{week}.czi')
+    
+#     # Check if file exists
+#     if not os.path.isfile(czi_path):
+#         abort(404)
+    
+#     # Send the file as download
+#     return send_file(czi_path, as_attachment=True, download_name=f'week{week}.czi')
+
 def download_week(week):
     # Path to the CZI file
-    czi_path = os.path.join(app.static_folder, 'czi_images', f'week{week}.czi')
+    czi_path = os.path.join('https://media.githubusercontent.com/media/michaeff/Bleo-website/refs/heads/main/static/', 'czi_images', f'week{week}.czi')
     
     # Check if file exists
     if not os.path.isfile(czi_path):
