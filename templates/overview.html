@@ -312,7 +312,7 @@
             <label><input type="checkbox" class="channel-cbx" data-section="healthy-airway" data-chan="3"> <span>aSMA</span></label>
             <label><input type="checkbox" class="channel-cbx" data-section="healthy-airway" data-chan="4"> <span>DAPI</span></label>
           </div>
-          <button class="download-image-btn" onclick="downloadCurrentView('healthy-airway')">Download</button>
+          <button class="download-image-btn" onclick="downloadCurrentView('healthy-airway')"fldr="overview" name="healthy airway", type = "1">Download</button>
         </div>
         <div class="z-slider">
           <label class="z-slider-label">Z-Stack: <span id="z-value-healthy-airway">50</span></label>
@@ -358,7 +358,7 @@
             <label><input type="checkbox" class="channel-cbx" data-section="week0" data-chan="3"> <span>aSMA</span></label>
             <label><input type="checkbox" class="channel-cbx" data-section="week0" data-chan="4"> <span>DAPI</span></label>
           </div>
-          <button class="download-image-btn" onclick="downloadCurrentView('week0')">Download</button>
+          <button class="download-image-btn" onclick="downloadCurrentView('week0')"fldr="0" name="", type = "2">Download</button>
         </div>
         <div class="z-slider">
           <label class="z-slider-label">Z-Stack: <span id="z-value-week0">50</span></label>
@@ -404,7 +404,7 @@
             <label><input type="checkbox" class="channel-cbx" data-section="kmc2" data-chan="3"> <span>aSMA</span></label>
             <label><input type="checkbox" class="channel-cbx" data-section="kmc2" data-chan="4"> <span>DAPI</span></label>
           </div>
-          <button class="download-image-btn" onclick="downloadCurrentView('kmc2')">Download</button>
+          <button class="download-image-btn" onclick="downloadCurrentView('kmc2')"fldr="3" name="kmc2", type = "2">Download</button>
         </div>
         <div class="z-slider">
           <label class="z-slider-label">Z-Stack: <span id="z-value-kmc2">50</span></label>
@@ -450,7 +450,7 @@
             <label><input type="checkbox" class="channel-cbx" data-section="healthy-venule" data-chan="3"> <span>aSMA</span></label>
             <label><input type="checkbox" class="channel-cbx" data-section="healthy-venule" data-chan="4"> <span>DAPI</span></label>
           </div>
-          <button class="download-image-btn" onclick="downloadCurrentView('healthy-venule')">Download</button>
+          <button class="download-image-btn" onclick="downloadCurrentView('healthy-venule')"fldr="overview" name="healthy venule", type = "1">Download</button>
         </div>
         <div class="z-slider">
           <label class="z-slider-label">Z-Stack: <span id="z-value-healthy-venule">50</span></label>
@@ -496,7 +496,7 @@
             <label><input type="checkbox" class="channel-cbx" data-section="fibrotic-venule" data-chan="3"> <span>aSMA</span></label>
             <label><input type="checkbox" class="channel-cbx" data-section="fibrotic-venule" data-chan="4"> <span>DAPI</span></label>
           </div>
-          <button class="download-image-btn" onclick="downloadCurrentView('fibrotic-venule')">Download</button>
+          <button class="download-image-btn" onclick="downloadCurrentView('fibrotic-venule')"fldr="3" name="FV", type = "1">Download</button>
         </div>
         <div class="z-slider">
           <label class="z-slider-label">Z-Stack: <span id="z-value-fibrotic-venule">50</span></label>
@@ -542,7 +542,8 @@
             <label><input type="checkbox" class="channel-cbx" data-section="healthy-arteriole" data-chan="3"> <span>aSMA</span></label>
             <label><input type="checkbox" class="channel-cbx" data-section="healthy-arteriole" data-chan="4"> <span>DAPI</span></label>
           </div>
-          <button class="download-image-btn" onclick="downloadCurrentView('healthy-arteriole')">Download</button>
+          <button class="download-image-btn" onclick="downloadCurrentView('healthy-arteriole')"fldr="overview" name="healthy arteriole", type = "1">Download</button>
+
         </div>
         <div class="z-slider">
           <label class="z-slider-label">Z-Stack: <span id="z-value-healthy-arteriole">50</span></label>
@@ -588,7 +589,7 @@
             <label><input type="checkbox" class="channel-cbx" data-section="fibrotic-arteriole" data-chan="3"> <span>aSMA</span></label>
             <label><input type="checkbox" class="channel-cbx" data-section="fibrotic-arteriole" data-chan="4"> <span>DAPI</span></label>
           </div>
-          <button class="download-image-btn" onclick="downloadCurrentView('fibrotic-arteriole')">Download</button>
+          <button class="download-image-btn" onclick="downloadCurrentView('fibrotic-arteriole')"fldr="3" name="FA", type = "2">Download</button>
         </div>
         <div class="z-slider">
           <label class="z-slider-label">Z-Stack: <span id="z-value-fibrotic-arteriole">50</span></label>
@@ -867,13 +868,14 @@
       // Clear any existing popups first
       document.querySelectorAll('.download-popup').forEach(p => p.remove());
       
-      const week = btn.getAttribute('data-week');
-      const iter = btn.getAttribute('list-num')
+      const fldr = btn.getAttribute('fldr');
+      const iter = btn.getAttribute('name');
+      const type = btn.getAttribute('type');
       const popup = document.createElement('div');
       popup.className = 'download-popup';
       popup.innerHTML = `
-        <button onclick="window.location='/download/detailweek${week}${iter}'">Download CZI</button>
-        <button onclick="window.location='/download/detailweektif${week}${iter}'">Download TIFF</button>
+        <button onclick="window.location='/download/overview${week}${iter}'">Download CZI</button>
+        <button onclick="window.location='/download/overviewtif${week}${iter}'">Download TIFF</button>
         <button class='close-btn'>Cancel</button>
       `;
       
