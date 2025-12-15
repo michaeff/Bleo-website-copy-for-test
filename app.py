@@ -125,7 +125,7 @@ def download_overview(fldr,name,type):
     #     # Send the file as download
     #     return send_file(czi_path, as_attachment=True, download_name=f'detailweek{week}.czi')
 
-@app.route('/download/overviewtif<string:fldr><string:name><string:type>'')
+@app.route('/download/overviewtif<string:fldr><string:name><string:type>')
 def download_overviewtif(fldr,name,type):
     print("fldr = " + fldr)
     print("name = "+ name)
