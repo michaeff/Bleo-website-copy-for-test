@@ -54,7 +54,7 @@ def download_detailweek(week):
         url = f"https://media.githubusercontent.com/media/michaeff/Bleo-website/main/static/czi_images_detailed/week{week}/week{week}.czi"
         return redirect(url)
     elif week0=="o":
-                url = f"https://media.githubusercontent.com/media/michaeff/Bleo-website/main/static/overview/{week[8:]}/overview.czi"
+        url = f"https://media.githubusercontent.com/media/michaeff/Bleo-website/main/static/overview/{week[8:]}/overview.czi"
         return redirect(url)
     else:
         weekrest= week[1:]
