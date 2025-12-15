@@ -92,6 +92,11 @@ def download_detailweektif(week):
         
 @app.route('/download/overview<string:fldr><string:name><string:type>')
 def download_overview(fldr,name,type):
+    print("fldr = " + fldr)
+    print("name = "+ name)
+    print("type = "+ type)
+
+    
     if type == '1':
         url = f"https://media.githubusercontent.com/media/michaeff/Bleo-website/main/static/overview/{name}/{name}.czi"
         return redirect(url)
@@ -122,6 +127,9 @@ def download_overview(fldr,name,type):
 
 @app.route('/download/overviewtif<string:fldr><string:name><string:type>'')
 def download_overviewtif(fldr,name,type):
+    print("fldr = " + fldr)
+    print("name = "+ name)
+    print("type = "+ type)
     if type == '1':
         url = f"https://media.githubusercontent.com/media/michaeff/Bleo-website/main/static/overview/{name}/{name}.tif"
         return redirect(url)
