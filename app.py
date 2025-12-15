@@ -1,5 +1,6 @@
 import os
 from flask import Flask, render_template, abort, url_for, send_file
+from flask import redirect, abort
 
 app = Flask(__name__, static_folder='static', template_folder='templates')
 
@@ -37,15 +38,8 @@ def week_detail(week):
 #     return send_file(czi_path, as_attachment=True, download_name=f'week{week}.czi')
 
 def download_week(week):
-    # Path to the CZI file
-    czi_path = os.path.join('https://media.githubusercontent.com/media/michaeff/Bleo-website/refs/heads/main/static/', 'czi_images', f'week{week}.czi')
-    
-    # Check if file exists
-    if not os.path.isfile(czi_path):
-        abort(404)
-    
-    # Send the file as download
-    return send_file(czi_path, as_attachment=True, download_name=f'week{week}.czi')
+    url = f"https://media.githubusercontent.com/media/michaeff/Bleo-website/main/static/czi_images/week{week}.czi"
+    return redirect(url)
 
 @app.route('/download/weektif<int:week>')
 def download_weektif(week):
