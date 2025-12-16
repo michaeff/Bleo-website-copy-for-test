@@ -78,10 +78,11 @@ document.addEventListener("DOMContentLoaded", () => {
           // Week 0: week0_z{z}_ch{chan}.png
           src = `/static/processed_detailed/week${WEEK}/week${WEEK}_z${z}_ch${chan}.png`;
           }
-          else {
+          } else {
+          // WEEK 0 overview case — folder AND filename use underscore
           src = `/static/overview_processed_detailed/${sectionFile}/overview_${sectionFile}_z${z}_ch${chan}.png`;
           }
-        } else {
+          } else {
           // Other weeks: week{week}_{section}_z{z}_ch{chan}.png
           src = `/static/processed_detailed/week${WEEK}/${sectionName}/week${WEEK}_${sectionName}_z${z}_ch${chan}.png`;
         }
