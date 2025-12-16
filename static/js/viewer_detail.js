@@ -70,22 +70,22 @@ document.addEventListener("DOMContentLoaded", () => {
           viewer.appendChild(img);
         }
 
-        // Build the correct file path based on week and section
         const sectionFile = sectionName.replace(/-/g, "_");
         let src;
+
         if (WEEK === 0) {
-          if (sectionName=="week0"){
-          // Week 0: week0_z{z}_ch{chan}.png
-          src = `/static/processed_detailed/week${WEEK}/week${WEEK}_z${z}_ch${chan}.png`;
-          }
-          } else {
-          // WEEK 0 overview case — folder AND filename use underscore
-          src = `/static/overview_processed_detailed/${sectionFile}/overview_${sectionFile}_z${z}_ch${chan}.png`;
-          }
-          } else {
-          // Other weeks: week{week}_{section}_z{z}_ch{chan}.png
-          src = `/static/processed_detailed/week${WEEK}/${sectionName}/week${WEEK}_${sectionName}_z${z}_ch${chan}.png`;
+        if (sectionName === "week0") {
+        // Week 0 special case
+        src = `/static/processed_detailed/week${WEEK}/week${WEEK}_z${z}_ch${chan}.png`;
+        } else {
+        // Week 0 overview case (underscore folder + filename)
+        src = `/static/overview_processed_detailed/${sectionFile}/overview_${sectionFile}_z${z}_ch${chan}.png`;
         }
+        } else {
+        // Weeks >= 1
+        src = `/static/processed_detailed/week${WEEK}/${sectionName}/week${WEEK}_${sectionName}_z${z}_ch${chan}.png`;
+        }
+
 
         console.log(`🔗 Loading ${src}`);
         img.src = src;
