@@ -72,6 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const sectionFile = sectionName.replace(/-/g, "_");
         let src;
+        console.log("🟢 sectionName:", sectionName);
 
         if (WEEK === 0) {
         if (sectionName === "week0") {
