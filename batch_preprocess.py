@@ -172,7 +172,7 @@ def process_detailed_czi(filename, output_dir):
             f /= span
 
             # Threshold
-            f = _apply_threshold(f, c+1)
+            f = _apply_threshold(f, z+1)
 
             # To uint8
             p8 = (f * 255).astype(np.uint8)
