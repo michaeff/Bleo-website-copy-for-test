@@ -15,9 +15,9 @@ from PIL import Image
 # Tint colors per channel (R, G, B)
 CHANNEL_COLORS = {
     1: (255,   255,   255),   # ASE
-    2: (0,   255,   100),   # GFP
+    2: (0,   255,   0),   # GFP
     3: (255,     0, 0),   # aSMA
-    4: (100, 100, 255)    # DAPI
+    4: (0, 0, 255)    # DAPI
 }
 
 # Per–week rotations (k counts of 90° CCW):
@@ -164,7 +164,6 @@ def process_detailed_czi(filename, output_dir):
     for z in range(Z):
         for c in range(C):
             plane = arr[z, c, :, :].astype(np.float32)
-            plane = (plane/plane.max()*255).astype(np.uint8)
             # Normalize
             f = plane.astype(np.float32)
             f -= f.min()
