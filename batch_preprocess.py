@@ -184,7 +184,7 @@ def process_detailed_czi(filename, output_dir):
 
 
             out = os.path.join(output_dir,
-                 f"week6_kmc2_z{c+1}_ch{z+1}.png")
+                 f"week6_HV_z{c+1}_ch{z+1}.png")
             img.save(out)
 
 
@@ -204,8 +204,8 @@ def process_detailed_czi(filename, output_dir):
 # 3) Define input/output roots
 #MAIN_IN   = os.path.join('static','czi_images')
 #MAIN_OUT  = os.path.join('static','processed')
-DET_IN    = "C:/Users/micha/Downloads/cziplease/week6_kmc2.czi"
-DET_OUT   = "C:/Users/micha/Downloads/kmc2please"
+DET_IN    = "C:/Users/micha/Downloads/bigguyczi/week6_HV.czi"
+DET_OUT   = "C:/Users/micha/Downloads/bigguypng/"
 
 def ensure(path):
     os.makedirs(path, exist_ok=True)
@@ -222,17 +222,12 @@ def batch_detailed():
     print("""Process all multi-Z CZIs under static/czi_images_detailed/week*/kmc*/""")
     if not process_detailed_czi:
         return
-
+    
     print("help me")      
-                    
-    try:
-        print("salkjhd")           
-        process_detailed_czi(DET_IN, DET_OUT)
+                        
+    process_detailed_czi(DET_IN, DET_OUT)
                     
            
-    except Exception as e:
-                       
-        print(f"  [ERROR] {DET_IN}: {e}")
 
 if __name__ == "__main__":
     print("=== Starting batch preprocessing ===")
