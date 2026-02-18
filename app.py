@@ -51,7 +51,7 @@ def download_detailweek(week):
     print(week)
     week0= week[0]
     if week0 == '0':
-        url = f"https://media.githubusercontent.com/media/michaeff/Bleo-website/main/static/czi_images_detailed/week{week}/week{week}.czi"
+        url = f"https://media.githubusercontent.com/media/michaeff/Bleo-website/main/static/czi_images_detailed/week{week}/week{week}copy.czi"
         return redirect(url)
     elif week0=="o":
         url = f"https://media.githubusercontent.com/media/michaeff/Bleo-website/main/static/overview/{week[8:]}/over.czi"
@@ -91,7 +91,7 @@ def download_detailweektif(week):
         url = f"https://media.githubusercontent.com/media/michaeff/Bleo-website/main/static/czi_images_detailed/week{week}/week{week}.tif"
         return redirect(url)
     elif week0=="o":
-        url = f"https://media.githubusercontent.com/media/michaeff/Bleo-website/main/static/overview/{week[8:]}/over.tif"
+        url = f"https://media.githubusercontent.com/media/michaeff/Bleo-website/main/static/overview/{week[8:]}/overview.tif"
         return redirect(url)
     else:
         weekrest= week[1:]
