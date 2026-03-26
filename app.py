@@ -38,26 +38,26 @@ def week_detail(week):
 #     return send_file(czi_path, as_attachment=True, download_name=f'week{week}.czi')
 
 def download_week(week):
-    url = f"https://testbuckettotryforfun.sfo3.digitaloceanspaces.com/static/czi_images/week{week}.czi"
+    url = f"https://testbuckettotryforfun.sfo3.digitaloceanspaces.com/bleo-website/static/czi_images/week{week}.czi"
     return redirect(url)
 
 @app.route('/download/weektif<int:week>')
 def download_weektif(week):
-    url = f"https://testbuckettotryforfun.sfo3.digitaloceanspaces.com/static/czi_images/week{week}.tif"
+    url = f"https://testbuckettotryforfun.sfo3.digitaloceanspaces.com/bleo-website/static/czi_images/week{week}.tif"
     return redirect(url)
 @app.route('/download/detailweek<string:week>')
 def download_detailweek(week):
     print(week)
     week0= week[0]
     if week0 == '0':
-        url = f"https://testbuckettotryforfun.sfo3.digitaloceanspaces.com/static/czi_images_detailed/week{week}/week{week}copy.czi"
+        url = f"https://testbuckettotryforfun.sfo3.digitaloceanspaces.com/bleo-website/static/czi_images_detailed/week{week}/week{week}copy.czi"
         return redirect(url)
     elif week0=="o":
-        url = f"https://testbuckettotryforfun.sfo3.digitaloceanspaces.com/static/overview/{week[8:]}/over.czi"
+        url = f"https://testbuckettotryforfun.sfo3.digitaloceanspaces.com/bleo-website/static/overview/{week[8:]}/over.czi"
         return redirect(url)
     else:
         weekrest= week[1:]
-        url = f"https://testbuckettotryforfun.sfo3.digitaloceanspaces.com/static/czi_images_detailed/week{week0}/{weekrest}/week{week0}_{weekrest}.czi"
+        url = f"https://testbuckettotryforfun.sfo3.digitaloceanspaces.com/bleo-website/static/czi_images_detailed/week{week0}/{weekrest}/week{week0}_{weekrest}.czi"
         return redirect(url)
     # # Path to the CZI file
     # week0= week[0]
@@ -87,14 +87,14 @@ def download_detailweektif(week):
     print(week)
     week0= week[0]
     if week0 == '0':
-        url = f"https://testbuckettotryforfun.sfo3.digitaloceanspaces.com/static/czi_images_detailed/week{week}/week{week}.tif"
+        url = f"https://testbuckettotryforfun.sfo3.digitaloceanspaces.com/bleo-website/static/czi_images_detailed/week{week}/week{week}.tif"
         return redirect(url)
     elif week0=="o":
-        url = f"https://testbuckettotryforfun.sfo3.digitaloceanspaces.com/static/overview/{week[8:]}/overview.tif"
+        url = f"https://testbuckettotryforfun.sfo3.digitaloceanspaces.com/bleo-website/static/overview/{week[8:]}/overview.tif"
         return redirect(url)
     else:
         weekrest= week[1:]
-        url = f"https://testbuckettotryforfun.sfo3.digitaloceanspaces.com/static/czi_images_detailed/week{week0}/{weekrest}/week{week0}_{weekrest}.tif"
+        url = f"https://testbuckettotryforfun.sfo3.digitaloceanspaces.com/bleo-website/static/czi_images_detailed/week{week0}/{weekrest}/week{week0}_{weekrest}.tif"
         return redirect(url)
         
 
